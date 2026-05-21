@@ -1,0 +1,6 @@
+\babel@toc {english}{}\relax 
+\contentsline {section}{\numberline {1}Data Analysis and Regression}{1}{section.1}%
+\contentsline {subsection}{\numberline {1.1}Logistic Regression}{1}{subsection.1.1}%
+\contentsline {subsection}{\numberline {1.2}Nonlinear Least-Squares}{1}{subsection.1.2}%
+\contentsline {section}{\numberline {2}Given Dataset}{1}{section.2}%
+\contentsline {section}{\numberline {3}Mini-Project}{1}{section.3}%
