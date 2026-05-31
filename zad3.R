@@ -16,6 +16,7 @@ data_summary <- data.frame(
 print(data_summary)
 
 ## saving to latex table
+dir.create("report", recursive = TRUE, showWarnings = FALSE)
 
 install.packages("xtable")
 library(xtable)
@@ -147,6 +148,29 @@ print(train_distribution)
 print("Test set distribution:")
 print(test_distribution)
 
+#-------------------------------
+# saving class distributions to latex
+
+class_distribution_table <- rbind(
+  cbind(Dataset = "Full dataset", full_distribution),
+  cbind(Dataset = "Training set", train_distribution),
+  cbind(Dataset = "Test set", test_distribution)
+)
+
+print(class_distribution_table)
+
+class_distribution_latex <- xtable(
+  class_distribution_table,
+  caption = "Class distribution in the full dataset, training set and test set.",
+  label = "tab:class_distribution"
+)
+
+print(
+  class_distribution_latex,
+  file = "report/class_distribution.tex",
+  include.rownames = FALSE
+)
+
 # -------------------------------------------------------
 
 # training
@@ -262,7 +286,7 @@ calculate_metrics <- function(conf_mat) {
     Precision_Bad = precision_bad,
     Recall_Bad = recall_bad,
     Specificity = specificity,
-    F1_Bad = f1_bad,
+    F1_Bad = f1_bad
   )
 }
 
