@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2025.2.28)  31 MAY 2026 22:47
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2025.2.28)  1 JUN 2026 12:39
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -781,25 +781,25 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 [2 <./A-1-1.pdf> <./A-1-2.pdf>]
 
 [3 <./A-1-3.pdf>] (./summary.tex)
-<plots/histogram_Account_Status__with_the_bank_.pdf, id=65, 505.89pt x 361.35pt>
+<plots/histogram_Account_Status__with_the_bank_.pdf, id=70, 505.89pt x 361.35pt>
 File: plots/histogram_Account_Status__with_the_bank_.pdf Graphic file (type pdf)
 <use plots/histogram_Account_Status__with_the_bank_.pdf>
-Package pdftex.def Info: plots/histogram_Account_Status__with_the_bank_.pdf  used on input line 288.
+Package pdftex.def Info: plots/histogram_Account_Status__with_the_bank_.pdf  used on input line 290.
 (pdftex.def)             Requested size: 212.91577pt x 152.08575pt.
-<plots/boxplot_Account_Status__with_the_bank_.pdf, id=66, 505.89pt x 361.35pt>
+<plots/boxplot_Account_Status__with_the_bank_.pdf, id=71, 505.89pt x 361.35pt>
 File: plots/boxplot_Account_Status__with_the_bank_.pdf Graphic file (type pdf)
 <use plots/boxplot_Account_Status__with_the_bank_.pdf>
-Package pdftex.def Info: plots/boxplot_Account_Status__with_the_bank_.pdf  used on input line 293.
+Package pdftex.def Info: plots/boxplot_Account_Status__with_the_bank_.pdf  used on input line 295.
 (pdftex.def)             Requested size: 212.91577pt x 152.08575pt.
-<plots/histogram_Credit_Months.pdf, id=67, 505.89pt x 361.35pt>
+<plots/histogram_Credit_Months.pdf, id=72, 505.89pt x 361.35pt>
 File: plots/histogram_Credit_Months.pdf Graphic file (type pdf)
 <use plots/histogram_Credit_Months.pdf>
-Package pdftex.def Info: plots/histogram_Credit_Months.pdf  used on input line 307.
+Package pdftex.def Info: plots/histogram_Credit_Months.pdf  used on input line 309.
 (pdftex.def)             Requested size: 212.91577pt x 152.08575pt.
-<plots/boxplot_Credit_Months.pdf, id=68, 505.89pt x 361.35pt>
+<plots/boxplot_Credit_Months.pdf, id=73, 505.89pt x 361.35pt>
 File: plots/boxplot_Credit_Months.pdf Graphic file (type pdf)
 <use plots/boxplot_Credit_Months.pdf>
-Package pdftex.def Info: plots/boxplot_Credit_Months.pdf  used on input line 312.
+Package pdftex.def Info: plots/boxplot_Credit_Months.pdf  used on input line 314.
 (pdftex.def)             Requested size: 212.91577pt x 152.08575pt.
 
 
@@ -807,32 +807,32 @@ Package pdftex.def Info: plots/boxplot_Credit_Months.pdf  used on input line 312
 <plots/histogram_Credit_Amount__K_1000_.pdf, id=94, 505.89pt x 361.35pt>
 File: plots/histogram_Credit_Amount__K_1000_.pdf Graphic file (type pdf)
 <use plots/histogram_Credit_Amount__K_1000_.pdf>
-Package pdftex.def Info: plots/histogram_Credit_Amount__K_1000_.pdf  used on input line 326.
+Package pdftex.def Info: plots/histogram_Credit_Amount__K_1000_.pdf  used on input line 328.
 (pdftex.def)             Requested size: 212.91577pt x 152.08575pt.
 <plots/boxplot_Credit_Amount__K_1000_.pdf, id=95, 505.89pt x 361.35pt>
 File: plots/boxplot_Credit_Amount__K_1000_.pdf Graphic file (type pdf)
 <use plots/boxplot_Credit_Amount__K_1000_.pdf>
-Package pdftex.def Info: plots/boxplot_Credit_Amount__K_1000_.pdf  used on input line 331.
+Package pdftex.def Info: plots/boxplot_Credit_Amount__K_1000_.pdf  used on input line 333.
 (pdftex.def)             Requested size: 212.91577pt x 152.08575pt.
 <plots/histogram_Saving__account__bonds_.pdf, id=96, 505.89pt x 361.35pt>
 File: plots/histogram_Saving__account__bonds_.pdf Graphic file (type pdf)
 <use plots/histogram_Saving__account__bonds_.pdf>
-Package pdftex.def Info: plots/histogram_Saving__account__bonds_.pdf  used on input line 343.
+Package pdftex.def Info: plots/histogram_Saving__account__bonds_.pdf  used on input line 345.
 (pdftex.def)             Requested size: 212.91577pt x 152.08575pt.
 <plots/boxplot_Saving__account__bonds_.pdf, id=97, 505.89pt x 361.35pt>
 File: plots/boxplot_Saving__account__bonds_.pdf Graphic file (type pdf)
 <use plots/boxplot_Saving__account__bonds_.pdf>
-Package pdftex.def Info: plots/boxplot_Saving__account__bonds_.pdf  used on input line 348.
+Package pdftex.def Info: plots/boxplot_Saving__account__bonds_.pdf  used on input line 350.
 (pdftex.def)             Requested size: 212.91577pt x 152.08575pt.
 <plots/histogram_Years_of_Employment.pdf, id=98, 505.89pt x 361.35pt>
 File: plots/histogram_Years_of_Employment.pdf Graphic file (type pdf)
 <use plots/histogram_Years_of_Employment.pdf>
-Package pdftex.def Info: plots/histogram_Years_of_Employment.pdf  used on input line 361.
+Package pdftex.def Info: plots/histogram_Years_of_Employment.pdf  used on input line 363.
 (pdftex.def)             Requested size: 212.91577pt x 152.08575pt.
 <plots/boxplot_Years_of_Employment.pdf, id=99, 505.89pt x 361.35pt>
 File: plots/boxplot_Years_of_Employment.pdf Graphic file (type pdf)
 <use plots/boxplot_Years_of_Employment.pdf>
-Package pdftex.def Info: plots/boxplot_Years_of_Employment.pdf  used on input line 366.
+Package pdftex.def Info: plots/boxplot_Years_of_Employment.pdf  used on input line 368.
 (pdftex.def)             Requested size: 212.91577pt x 152.08575pt.
 
 
@@ -840,32 +840,32 @@ Package pdftex.def Info: plots/boxplot_Years_of_Employment.pdf  used on input li
 <plots/histogram_Residence_Years.pdf, id=137, 505.89pt x 361.35pt>
 File: plots/histogram_Residence_Years.pdf Graphic file (type pdf)
 <use plots/histogram_Residence_Years.pdf>
-Package pdftex.def Info: plots/histogram_Residence_Years.pdf  used on input line 379.
+Package pdftex.def Info: plots/histogram_Residence_Years.pdf  used on input line 381.
 (pdftex.def)             Requested size: 212.91577pt x 152.08575pt.
 <plots/boxplot_Residence_Years.pdf, id=138, 505.89pt x 361.35pt>
 File: plots/boxplot_Residence_Years.pdf Graphic file (type pdf)
 <use plots/boxplot_Residence_Years.pdf>
-Package pdftex.def Info: plots/boxplot_Residence_Years.pdf  used on input line 384.
+Package pdftex.def Info: plots/boxplot_Residence_Years.pdf  used on input line 386.
 (pdftex.def)             Requested size: 212.91577pt x 152.08575pt.
 <plots/histogram_Age.pdf, id=139, 505.89pt x 361.35pt>
 File: plots/histogram_Age.pdf Graphic file (type pdf)
 <use plots/histogram_Age.pdf>
-Package pdftex.def Info: plots/histogram_Age.pdf  used on input line 398.
+Package pdftex.def Info: plots/histogram_Age.pdf  used on input line 400.
 (pdftex.def)             Requested size: 212.91577pt x 152.08575pt.
 <plots/boxplot_Age.pdf, id=140, 505.89pt x 361.35pt>
 File: plots/boxplot_Age.pdf Graphic file (type pdf)
 <use plots/boxplot_Age.pdf>
-Package pdftex.def Info: plots/boxplot_Age.pdf  used on input line 403.
+Package pdftex.def Info: plots/boxplot_Age.pdf  used on input line 405.
 (pdftex.def)             Requested size: 212.91577pt x 152.08575pt.
 <plots/histogram_House__1_own__2_rent_.pdf, id=141, 505.89pt x 361.35pt>
 File: plots/histogram_House__1_own__2_rent_.pdf Graphic file (type pdf)
 <use plots/histogram_House__1_own__2_rent_.pdf>
-Package pdftex.def Info: plots/histogram_House__1_own__2_rent_.pdf  used on input line 417.
+Package pdftex.def Info: plots/histogram_House__1_own__2_rent_.pdf  used on input line 419.
 (pdftex.def)             Requested size: 212.91577pt x 152.08575pt.
 <plots/boxplot_House__1_own__2_rent_.pdf, id=142, 505.89pt x 361.35pt>
 File: plots/boxplot_House__1_own__2_rent_.pdf Graphic file (type pdf)
 <use plots/boxplot_House__1_own__2_rent_.pdf>
-Package pdftex.def Info: plots/boxplot_House__1_own__2_rent_.pdf  used on input line 422.
+Package pdftex.def Info: plots/boxplot_House__1_own__2_rent_.pdf  used on input line 424.
 (pdftex.def)             Requested size: 212.91577pt x 152.08575pt.
 
 
@@ -873,32 +873,32 @@ Package pdftex.def Info: plots/boxplot_House__1_own__2_rent_.pdf  used on input 
 <plots/histogram_Existing_credit_installment.pdf, id=181, 505.89pt x 361.35pt>
 File: plots/histogram_Existing_credit_installment.pdf Graphic file (type pdf)
 <use plots/histogram_Existing_credit_installment.pdf>
-Package pdftex.def Info: plots/histogram_Existing_credit_installment.pdf  used on input line 436.
+Package pdftex.def Info: plots/histogram_Existing_credit_installment.pdf  used on input line 438.
 (pdftex.def)             Requested size: 212.91577pt x 152.08575pt.
 <plots/boxplot_Existing_credit_installment.pdf, id=182, 505.89pt x 361.35pt>
 File: plots/boxplot_Existing_credit_installment.pdf Graphic file (type pdf)
 <use plots/boxplot_Existing_credit_installment.pdf>
-Package pdftex.def Info: plots/boxplot_Existing_credit_installment.pdf  used on input line 441.
+Package pdftex.def Info: plots/boxplot_Existing_credit_installment.pdf  used on input line 443.
 (pdftex.def)             Requested size: 212.91577pt x 152.08575pt.
 <plots/histogram_Job__1_Good_.pdf, id=183, 505.89pt x 361.35pt>
 File: plots/histogram_Job__1_Good_.pdf Graphic file (type pdf)
 <use plots/histogram_Job__1_Good_.pdf>
-Package pdftex.def Info: plots/histogram_Job__1_Good_.pdf  used on input line 455.
+Package pdftex.def Info: plots/histogram_Job__1_Good_.pdf  used on input line 457.
 (pdftex.def)             Requested size: 212.91577pt x 152.08575pt.
 <plots/boxplot_Job__1_Good_.pdf, id=184, 505.89pt x 361.35pt>
 File: plots/boxplot_Job__1_Good_.pdf Graphic file (type pdf)
 <use plots/boxplot_Job__1_Good_.pdf>
-Package pdftex.def Info: plots/boxplot_Job__1_Good_.pdf  used on input line 460.
+Package pdftex.def Info: plots/boxplot_Job__1_Good_.pdf  used on input line 462.
 (pdftex.def)             Requested size: 212.91577pt x 152.08575pt.
 <plots/histogram_Dependent__e_g___children_.pdf, id=185, 505.89pt x 361.35pt>
 File: plots/histogram_Dependent__e_g___children_.pdf Graphic file (type pdf)
 <use plots/histogram_Dependent__e_g___children_.pdf>
-Package pdftex.def Info: plots/histogram_Dependent__e_g___children_.pdf  used on input line 477.
+Package pdftex.def Info: plots/histogram_Dependent__e_g___children_.pdf  used on input line 479.
 (pdftex.def)             Requested size: 212.91577pt x 152.08575pt.
 <plots/boxplot_Dependent__e_g___children_.pdf, id=186, 505.89pt x 361.35pt>
 File: plots/boxplot_Dependent__e_g___children_.pdf Graphic file (type pdf)
 <use plots/boxplot_Dependent__e_g___children_.pdf>
-Package pdftex.def Info: plots/boxplot_Dependent__e_g___children_.pdf  used on input line 482.
+Package pdftex.def Info: plots/boxplot_Dependent__e_g___children_.pdf  used on input line 484.
 (pdftex.def)             Requested size: 212.91577pt x 152.08575pt.
 
 
@@ -906,18 +906,20 @@ Package pdftex.def Info: plots/boxplot_Dependent__e_g___children_.pdf  used on i
 <plots/histogram_Credit__1_Good_.pdf, id=225, 505.89pt x 361.35pt>
 File: plots/histogram_Credit__1_Good_.pdf Graphic file (type pdf)
 <use plots/histogram_Credit__1_Good_.pdf>
-Package pdftex.def Info: plots/histogram_Credit__1_Good_.pdf  used on input line 498.
+Package pdftex.def Info: plots/histogram_Credit__1_Good_.pdf  used on input line 500.
 (pdftex.def)             Requested size: 212.91577pt x 152.08575pt.
 <plots/boxplot_Credit__1_Good_.pdf, id=226, 505.89pt x 361.35pt>
 File: plots/boxplot_Credit__1_Good_.pdf Graphic file (type pdf)
 <use plots/boxplot_Credit__1_Good_.pdf>
-Package pdftex.def Info: plots/boxplot_Credit__1_Good_.pdf  used on input line 503.
+Package pdftex.def Info: plots/boxplot_Credit__1_Good_.pdf  used on input line 505.
 (pdftex.def)             Requested size: 212.91577pt x 152.08575pt.
  (./class_distribution.tex)
 
 [8 <./plots/histogram_Dependent__e_g___children_.pdf> <./plots/boxplot_Dependent__e_g___children_.pdf> <./plots/histogram_Credit__1_Good_.pdf> <./plots/boxplot_Credit__1_Good_.pdf>] (./svm_confusion_matrix.tex) (./svm_confusion_matrix_weighted.tex) (./svm_metrics.tex)
 
-[9] (./main.aux)
+[9]
+
+[10] (./main.aux)
  ***********
 LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2025-01-18>
@@ -926,18 +928,18 @@ Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 34760 strings out of 473201
- 753830 string characters out of 5720299
- 1160499 words of memory out of 5000000
+ 34761 strings out of 473201
+ 753837 string characters out of 5720299
+ 1160501 words of memory out of 5000000
  57500 multiletter control sequences out of 15000+600000
  564994 words of font info for 46 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 84i,8n,93p,1696b,605s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 84i,8n,93p,1696b,495s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfbx1000.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfbx1200.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfbx1440.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfrm1728.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sftt1000.pfb>
-Output written on main.pdf (9 pages, 324246 bytes).
+Output written on main.pdf (10 pages, 325003 bytes).
 PDF statistics:
- 341 PDF objects out of 1000 (max. 8388607)
- 243 compressed objects within 3 object streams
- 48 named destinations out of 1000 (max. 500000)
+ 346 PDF objects out of 1000 (max. 8388607)
+ 247 compressed objects within 3 object streams
+ 49 named destinations out of 1000 (max. 500000)
  148 words of extra memory for PDF output out of 10000 (max. 10000000)
 
