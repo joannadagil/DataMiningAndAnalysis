@@ -251,16 +251,105 @@ This method can also be sensitive to outliers and influential observations, espe
 Finally, logistic regression may perform worse than more advanced machine learning methods when dealing with complex decision boundaries or large numbers of interacting variables.
 
 
+
+
 \subsection*{2. Nonlinear Least-Squares}
+
+Three models were fitted to the data using nonlinear least squares (NLS) for $f_1$ and $f_2$, and ordinary least squares (OLS) for the linear-in-parameters model $f_3$:
+
+\begin{align}
+f_1(x) &= \frac{ax}{1 + cx^2}, \quad \hat{a} = 1.7233,\; \hat{c} = 0.9845 \\
+f_2(x) &= Axe^{-bx}, \quad \hat{A} = 2.0350,\; \hat{b} = 0.8577 \\
+f_3(x) &= a + bx + cx^2 + dx^3, \quad \hat{a}=0.0952,\; \hat{b}=1.5098,\; \hat{c}=-0.8848,\; \hat{d}=0.1426
+\end{align}
 
 \subsubsection*{(a)}
 
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.9\textwidth]{plots/A-2-1.pdf}
+\label{fig:model_fit}
+\end{figure}
+
+\noindent
+All parameters are statistically significant at the 5\% level. Both $f_1$ and $f_2$ converged quickly (4 and 3 iterations respectively).
+
+
+\medskip
+\noindent\textbf{Note on $f_2$.} The original model stated in the problem is $f_2(x) = axe^{-bx+c}$. However, this form is not identifiable: the parameters $a$ and $c$ are collinear since $a \cdot e^{c}$ constitutes a single constant. 
+The model is therefore reparametrised as $f_2(x) = Axe^{-bx}$, where $A = a\,e^{c}$, which is mathematically equivalent and numerically well-posed.
+
+
 \subsubsection*{(b)}
 
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.9\textwidth]{plots/A-2-2.pdf}
+\label{fig:model_fit}
+\end{figure}
+
+\begin{table}[h]
+\centering
+\caption{Goodness-of-fit metrics for all three models ($n=7$).}
+\begin{tabular}{lrrrrrrr}
+\toprule
+Model & RSS & RMSE & MAE & AIC & BIC & pseudo-$R^2$ & \#params \\
+\midrule
+$f_1$ & 0.00701 & 0.03164 & 0.02505 & $-22.484$ & $-22.646$ & 0.9754 & 2 \\
+$f_2$ & 0.00680 & 0.03116 & 0.02758 & $-22.695$ & $-22.857$ & 0.9761 & 2 \\
+$f_3$ & 0.00516 & 0.02714 & 0.02052 & $-20.630$ & $-20.901$ & 0.9819 & 4 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Although $f_3$ achieves the lowest RSS and highest $R^2$, it uses 4 parameters compared to 2 for $f_1$ and $f_2$. With only $n = 7$ data points, this leaves just 3 degrees of freedom, raising serious concerns about overfitting.
+
+Comparing $f_1$ and $f_2$ directly --- both with 2 parameters and 5 degrees of freedom --- $f_2$ is superior on every criterion: lower RSS (0.00680 vs 0.00701), lower RMSE, lower AIC ($-22.695$ vs $-22.484$), and lower BIC ($-22.857$ vs $-22.646$). The AIC and BIC explicitly penalise model complexity, so their preference for $f_2$ over $f_1$ is meaningful.
+
+\medskip
+\noindent\textbf{Conclusion:} $f_2(x) = Axe^{-bx}$ is the best candidate. It achieves near-identical fit to $f_3$ with half the parameters, and outperforms $f_1$ on all information criteria.
+
+
 \subsubsection*{(c)}
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.9\textwidth]{plots/A-2-3.pdf}
+\label{fig:model_fit}
+\end{figure}
+
+\begin{table}[h]
+\centering
+\caption{Predicted values and absolute errors at $x=4$ (true $y=0.25$).}
+\begin{tabular}{lrr}
+\toprule
+Model & $\hat{y}(4)$ & $|\hat{y}(4) - 0.25|$ \\
+\midrule
+$f_1$ & 0.4115 & 0.1615 \\
+$f_2$ & 0.2634 & 0.0134 \\
+$f_3$ & 1.1070 & 0.8570 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+$f_2$ predicts $\hat{y}(4) = 0.2634$, an absolute error of only $0.0134$ --- more than ten times smaller than $f_1$ and over sixty times smaller than $f_3$. The catastrophic failure of $f_3$ ($\hat{y} = 1.107$) is a textbook illustration of polynomial extrapolation: the cubic term dominates outside the training range and the curve diverges rapidly.
+
+\medskip
+\noindent\textbf{Conclusion:} $f_2$ should be selected to minimise prediction error at $x=4$.
+
 
 \subsubsection*{(d)}
+Overfitting occurs when a model captures noise rather than the underlying signal, fitting the training data closely but generalising poorly to new observations. The main ways to avoid it are:
 
+\begin{itemize}
+    \item \textbf{Information criteria (AIC, BIC):} These penalise the log-likelihood by a function of the number of parameters, rewarding parsimony. BIC applies a stronger penalty and is preferred when the true model is believed to be among the candidates.
+    \item \textbf{Cross-validation:} Holding out part of the data to evaluate predictive performance on unseen points directly tests generalisation.
+    \item \textbf{Physically motivated models:} Choosing functional forms that reflect the known behaviour of the system reduces the risk of spurious parameter proliferation.
+    \item \textbf{Residual analysis:} A well-fitted model should show structureless, homoscedastic residuals with no systematic patterns.
+\end{itemize}
+
+\noindent\textbf{Assessment of the three models.} With $n = 7$ observations, a rule of thumb is to allow at most $\lfloor n/5 \rfloor = 1$ to $2$ free parameters for robust generalisation.
+
+$f_1$ and $f_2$ each use 2 parameters, which is appropriate for this dataset size. $f_3$ uses 4 parameters, leaving only 3 residual degrees of freedom. The intercept of $f_3$ is not significant ($p = 0.154$), suggesting that at least one parameter is superfluous. The extrapolation result ($\hat{y}(4) = 1.107$) confirms that $f_3$ has more free parameters than needed and overfits the data.
 
 
 
