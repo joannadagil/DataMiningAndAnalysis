@@ -353,7 +353,7 @@ $f_1$ and $f_2$ each use 2 parameters, which is appropriate for this dataset siz
 
 
 
-
+\newpage
 
 \section*{B. Given Dataset}
 
@@ -363,11 +363,13 @@ We have decided to work on the dataset \texttt{sggw\_c.csv} and to perform SVM a
 
 \subsubsection*{(a) Data summary and visualization} 
 
-Descriptive statistics of the data include mean, median, variance, as well as minimum and maximum.  Not all features are necessarly numerical categories, so descriptive statistics should be interpreted with caution, the same applies to the plots below.
+Descriptive statistics of the data include mean, median, variance, as well as minimum and maximum. 
+
+Several variables are categorical or ordinal variables encoded as numerical values. Therefore, descriptive statistics such as mean and variance, as well as histograms and boxplots below, should be interpreted with caution.
 
 \input{summary.tex}
 
-Data visualization was performed both in histogram and in boxplot.
+The data were visualized using both histograms and boxplots.
 
 \begin{figure}[H]
     \centering
@@ -609,15 +611,17 @@ We have chosen to perform our analysis using Support Vector Machine.
 
 Code is heavily commented but there are a few points worth discussing further. 
 
-Sampling the train and test was made using $80:20$ proportions. Since the amount of input data was limited - $150$ entries with $108$ \texttt{Good} labels and $42$ \texttt{Bad} labels, we decided to check the proportions of \texttt{Good} and \texttt{Bad} labels in the sampling split. With the random seed set to $42$ the split was as below:
+The dataset was split into training and test sets using an $80:20$ proportion. Since the amount of input data was limited - $150$ entries with $108$ \texttt{Good} labels and $42$ \texttt{Bad} labels, we decided to check the proportions of \texttt{Good} and \texttt{Bad} labels in the sampling split. With the random seed set to $42$ the split was as below:
 
 \input{class_distribution.tex}
 
 As it can be seen, the proportions of the original dataset are similar to the proportions in train and in test datasets, thus the split can be described as representative of the original dataset.
 
+The standard SVM model was trained using a radial kernel. The target variable was converted to a factor before training, so the model performed classification rather than regression. The predictors were scaled, which is important for SVM because the method is sensitive to the relative scale of input variables.
+
 \subsubsection*{(c) Results}
 
-Model SVM trained as below
+The SVM model was trained as follows:
 
 \begin{verbatim}
 model <- svm(
@@ -627,13 +631,13 @@ model <- svm(
   scale = TRUE)
 \end{verbatim}
 
-Resulted in predictions:
+This resulted in the following predictions:
 
 \input{svm_confusion_matrix.tex}
 
-As we can see, the model works but it performs barely better than a naive model predicting only \texttt{Good} label for all cases. It happens because the data is unbalanced, having most of the data labeled as \texttt{Good}. Since the problem is credit risk, we would sensibly assume that the more optimal would be a model that makes less mistakes in labeling \texttt{Bad} cases as \texttt{Good} even if it has an overall lower accuracy.
+As we can see, the model works but it performs barely better than a naive model predicting only \texttt{Good} label for all cases, having accuracy at $0.7333$ as compared to naive accuracy at $0.7$. This is probably caused by the small dataset size, the use of default SVM parameters and class imbalance, having most of the data labeled as \texttt{Good}. Since the problem is credit risk, we could sensibly assume that the more optimal would be a model that makes less mistakes in labeling \texttt{Bad} cases as \texttt{Good} even if it has an overall lower accuracy. A \texttt{Bad} case predicted as \texttt{Good} is the dangerous error in credit risk.
 
-We can implement it by using class weights which penalize more harshly dalse \texttt{Good} predictions.
+We can address this by using class weights that increase the penalty for false \texttt{Good} predictions.
 
 \begin{verbatim}
 class_weights <- c(
@@ -650,14 +654,15 @@ model_weighted <- svm(
 )
 \end{verbatim}
 
-Above model on the same train/test split performer as follows.
+The weighted model, evaluated on the same train/test split, performed as follows.
 
 \input{svm_confusion_matrix_weighted.tex}
 
-The resulted acuracy is clearly worst, but we have successfully limited false \texttt{Good} labels. Depending on the prefered types of errors the weights can be further adjusted. Below are the final metrics of the predictions of both SVM models.
+The resulting overall accuracy is lower, but the weighted model reduces the number of \texttt{Bad} cases incorrectly classified as \texttt{Good}. Depending on the preferred types of errors the weights can be further adjusted. Below are the final metrics of the predictions of both SVM models.
 
 \input{svm_metrics.tex}
 
+Since the dataset is small and only one train/test split was used, the results should be interpreted as exploratory. A more reliable evaluation could use cross-validation.
 
 
 
@@ -665,6 +670,7 @@ The resulted acuracy is clearly worst, but we have successfully limited false \t
 
 
 
+\newpage
 
 \section*{C. Mini-Project}
 
