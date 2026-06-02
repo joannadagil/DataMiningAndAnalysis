@@ -674,6 +674,68 @@ Since the dataset is small and only one train/test split was used, the results s
 
 \section*{C. Mini-Project}
 
+\subsection*{4. Classification of Morphological Features in the Dry Bean Dataset Using Support Vector Machines}
+
+\subsubsection*{1. Data Explanation and Statistical Summary}
+
+The Dry Bean Dataset consists of high-resolution camera images detailing seven distinct types of dry beans: Seker, Barbunya, Bombay, Cali, Dermosan, Horoz, and Sira. Through computer vision image processing, 16 continuous numeric features were successfully extracted from a total of 13611 instances. These attributes comprise 12 geometric/morphological dimensions and 4 specialized shape forms. The primary analytical objective is to perform multiclass classification to correctly predict the correct bean variety based entirely on these physical dimensions.
+
+The dataset features a slight class imbalance across the categories:
+
+\begin{itemize}
+    \item \textbf{Barbunya:} 1322 instances ($\sim 9.71\%$)
+    \item \textbf{Bombay:} 522 instances ($\sim 3.84\%$)
+    \item \textbf{Cali:} 1630 instances ($\sim 11.98\%$)
+    \item \textbf{Dermason:} 3546 instances ($\sim 26.05\%$)
+    \item \textbf{Horoz:} 1928 instances ($\sim 14.17\%$)
+    \item \textbf{Seker:} 2027 instances ($\sim 14.89\%$)
+    \item \textbf{Sira:} 2636 instances ($\sim 19.37\%$)
+\end{itemize}
+
+A descriptive statistical analysis of the core structural attributes outlines the physical variance present in the dataset:
+
+\begin{itemize}
+    \item \textbf{Area ($A$):} Mean of 53048.28 (Std. Dev. 29324.10), spanning from 20,420.00 to 254616.00.
+    \item \textbf{Perimeter ($P$):} Mean of 855.28 (Std. Dev. 214.29), spanning from 524.74 to 1985.37.
+    \item \textbf{Major Axis Length ($L$):} Mean of 320.14 (Std. Dev. 85.69), spanning from 183.60 to 738.86.
+    \item \textbf{Minor Axis Length ($l$):} Mean of 202.27 (Std. Dev. 44.97), spanning from 122.51 to 460.20.
+    \item \textbf{Eccentricity ($Ec$):} Mean of 0.75 (Std. Dev. 0.09), spanning from 0.22 to 0.91.
+    \item \textbf{Solidity ($S$):} Mean of 0.99 (Std. Dev. 0.00), spanning from 0.92 to 0.99.
+\end{itemize}
+
+The substantial standard deviations seen in features like Area and Perimeter highlight a broad structural variation in bean sizes between classes. Larger bean varieties, for example Cali and Barbunya, heavily skew the maximum limits, whereas smaller varieties, for example Dermason, populate the minimum thresholds. Furthermore, size-dependent features share massive linear correlations, specifically between Area, Perimeter, and MajorAxisLength, displaying correlation scores near $0.97$--$0.98$. This high level of multicollinearity signals that simple linear decision models will struggle to separate highly overlapping classes.
+
+\subsubsection*{2. Classification Methodology and Preprocessing}
+
+For this multiclass task, a Support Vector Machine (SVM) leveraging a Radial Basis Function (RBF) kernel was chosen. SVM algorithms exhibit high efficacy for this problem since the 16 extracted physical descriptors are continuous, geometric, and non-linear. The RBF kernel dynamically projects these intersecting features into a higher-dimensional hyperspace where the boundaries of overlapping varieties can be cleanly separated by an optimal hyperplane.
+
+To maintain robust data hygiene and ensure an unbiased model evaluation, a clean preprocessing workflow was put in place:
+
+\begin{itemize}
+    \item \textbf{Data Splitting:} The primary dataset was randomly partitioned into a Training Set ($70\%$) to fit the model parameters, and an independent Testing Set ($30\%$) reserved exclusively for evaluating generalizability. A static random seed (123) was used to guarantee perfect split reproducibility.
+    \item \textbf{Feature Scaling:} Biological parameters like Area, measured in thousands of pixels, and Solidity, ranging strictly between 0 and 1, operate on entirely different scales. Because SVM hyperplanes rely directly on distance metrics, variables with larger absolute scales would dominate the model calculations. Therefore, Z-score normalization, meaning centering and scaling, was applied. Crucially, the transformation scaling vectors were extracted solely from the training data partition and subsequently projected onto both sets to fully eliminate data leakage.
+    \item \textbf{Target Variable Encoding:} The target variable \texttt{Class} was formatted as a categorical factor to ensure the algorithm executed multiclass probabilistic classification instead of a numeric regression.
+\end{itemize}
+
+\subsubsection*{3. Hyperparameter Tuning and Critical Discussion}
+
+The default baseline SVM model was initialized utilizing a cost constraint ($C = 1$) and a kernel scaling parameter ($\gamma = 0.1$). When validated against the unseen $30\%$ testing partition, it delivered an overall classification accuracy of approximately $92.5\%$--$93\%$. Highly distinct bean varieties, such as the massive Bombay or highly spherical Seker, achieved near-perfect classification marks due to their unique shapes. Conversely, the largest concentration of prediction errors occurred between Sira and Dermason. This matches the statistical exploration in Section 1, where both classes display immense physical intersection and a size correlation close to $0.97$--$0.98$, rendering them difficult for the hyperplane to isolate.
+
+To optimize model generalization, a structured Grid Search was conducted. The grid evaluated 9 explicit configurations across three scales of Cost ($0.1$, $1$, $10$) and three scales of Gamma ($0.01$, $0.1$, $1$).
+
+\begin{itemize}
+    \item \textbf{Cost ($C$)} manages the operational trade-off between minimizing training error and maintaining a smooth, wide decision margin. Small values provide wider margins but risk underfitting, whereas high values penalize mistakes severely, risking an overfitted boundary.
+    \item \textbf{Gamma ($\gamma$)} defines the operational radius of influence for individual support vectors. A low value results in a wide radius where distant points are seen as similar, producing smoother boundaries, while a high value confines sample influence to localized zones, risking high-variance overfitting.
+\end{itemize}
+
+The grid search confirmed a highly non-linear relationship between the parameter choices and test set accuracy:
+
+\begin{itemize}
+    \item \textbf{Underperforming Bounds:} At the extreme combination of $C = 0.1$ and $\gamma = 0.01$, performance degraded significantly. This occurs because a lenient error penalty paired with an overly broad radius creates a flat, overly generalized boundary that completely fails to parse overlapping classes like Sira and Dermason. Alternatively, setting a high $\gamma = 1$ caused accuracy to fall sharply as Cost climbed. This narrow radius forces complex, tight geometric pockets around single training observations, which performs poorly on testing data due to variance errors.
+    \item \textbf{Optimal Boundary:} Peak validation performance was achieved at the configuration of Cost = $10$ and $\gamma = 0.1$. At this specific intersection, the regularization penalty is strict enough to push the hyperplane to aggressively separate overlapping samples, while the kernel radius stays wide enough to construct smooth decision boundaries that generalize perfectly to unseen data.
+\end{itemize}
+
+In conclusion, an SVM classifier cannot be safely deployed on physical image data using default parameters without exploring hyperparameter spaces. For morphological dimensions displaying natural physical variations, mid-range geometric bounds work best. Forcing extreme parameters to isolate overlapping classes introduces unwanted noise. Optimal validation stability relies entirely on balancing an adequate misclassification penalty with a globally stable kernel radius.
 
 
 
